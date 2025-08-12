@@ -11,6 +11,7 @@ class PostBloc extends Bloc<PostEvent, PostState> {
     on<FetchPosts>(_fetchPost);
   }
   void _fetchPost(FetchPosts event, Emitter<PostState> emit) async {
+    emit(state.copyWith(status: ApiStatus.loading));
     await repository
         .fetchPosts()
         .then((value) {
