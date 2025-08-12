@@ -8,3 +8,8 @@ abstract class PostEvent extends Equatable {
 }
 
 class FetchPosts extends PostEvent {}
+
+class SearchPostByEmail extends PostEvent {
+  String inputValue;
+  SearchPostByEmail({required this.inputValue});
+}
